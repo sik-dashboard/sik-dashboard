@@ -18,7 +18,7 @@ function loadBackground() {
   const savedImage = localStorage.getItem("bg");
   const now = new Date();
   const minutes = now.getMinutes();
-  if (savedImage === null || (minutes % 5 == 0) ) {
+  if (savedImage === null) {
     getBackground();
   } else {
     const parsedImage = JSON.parse(savedImage);
