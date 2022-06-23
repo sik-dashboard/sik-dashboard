@@ -16,8 +16,7 @@ const body = document.querySelector("body"),
 
 function loadBackground() {
   const savedImage = localStorage.getItem("bg");
-  const now = new Date();
-  const minutes = now.getMinutes();
+ 
   if (savedImage === null) {
     getBackground();
   } else {
@@ -97,6 +96,7 @@ function getBackground() {
 
 function initApp() {
   loadBackground();
+  setInterval(localStorage.removeItem("bg"), 5000);
   return;
 }
 
