@@ -1,7 +1,8 @@
 const form = document.querySelector(".js-to-do"),
   input = document.querySelector(".js-add-to-do"),
-  list = document.querySelector(".js-list");
-
+  todoDiv = document.querySelector(".to-do-div");;
+ let list = document.querySelector(".js-list");
+let cnt = 0;
 let toDos = [];
 
 function persistToDos() {
@@ -31,18 +32,29 @@ function handleDelete(event) {
 }
 
 function addToDo(text) {
+
+  if(toDos.length >= cnt*10){
+   let list2 = document.createElement("ul");
+   list2.className = "js-list list";
+   list = list2;
+   todoDiv.append(list);
+   cnt++;
+  }
   const toDo = document.createElement("li");
   toDo.className = "toDo";
   toDo.id = toDos.length + 1;
+  
   const deleteBtn = document.createElement("span");
-  deleteBtn.innerHTML = "❌";
+  // deleteBtn.innerHTML = "🗹";
+  deleteBtn.innerHTML = "🗸";
   deleteBtn.className = "toDo__button";
   deleteBtn.addEventListener("click", handleDelete);
   const label = document.createElement("label");
   label.innerHTML = text;
+  toDo.appendChild(deleteBtn);
   toDo.appendChild(label);
   list.appendChild(toDo);
-  toDo.appendChild(deleteBtn);
+
   saveToDo(text);
 }
 

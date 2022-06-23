@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <style>
-    .google-search::placeholder {
-  color: grey;
-  font-style: italic;
-}
+    .google-search::placeholder, .js-add-to-do::placeholder{
+        color: rgb(201, 200, 200);
+    }
+    .google-search::placeholder{
+        font-size: 18px;
+    }
+    .google-search{
+        font-size: 18px;
+    }
 </style>
 <body>
 
@@ -23,22 +28,26 @@
         </div>
     <!-- Search Google -->
         <form method=get action="http://www.google.co.kr/search" target="_blank" >
-          <table bgcolor="#FFFFFF" style="border-radius: 10px; margin-bottom: 15px; ">
+          <table bgcolor="#FFFFFF" style="border-radius: 10px; margin-bottom: 25px; ">
             <tr>
               <td>
-                  <input type=text name=q size=25 maxlength=255 value="" class="google-search" style="color:black;font-family:Arial, Helvetica, sans-serif;" placeholder="검색어를 입력하세요"/> <!-- 구글 검색 입력 창 -->
-                  <input type=submit name=btnG value="Google 검색" /> <!-- 검색 버튼 -->
+                  <input type=text name=q size=25 maxlength=255 value="" class="google-search" style="color:black;font-family:Arial, Helvetica, sans-serif;" placeholder="검색어를 입력하세요."/> <!-- 구글 검색 입력 창 -->
+                  <input type=submit name=btnG value="Google 검색" style="width:10px;" /> <!-- 검색 버튼 -->
               </td>
             </tr>
           </table>
         </form>
     <!-- Search Google -->
+    
         <div class="js-name name"></div>
         <div>
-            <form class="js-to-do to-do">
+            <form class="js-to-do to-do" style="text-align: center;">
                 <input class="js-add-to-do to-do__add-to-do" placeholder="Write a To Do here" type="text" style="text-align: center;"/>
             </form>
-            <ul class="js-list list"></ul>
+            <div  class="to-do-div" style="display:flex;">
+                <ul class="js-list list"></ul>
+            </div>
+            
         </div>
     </section>
 
